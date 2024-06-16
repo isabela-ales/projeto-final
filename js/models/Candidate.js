@@ -15,4 +15,8 @@ class Candidate {
         const storedCandidateInfo = JSON.parse(localStorage.getItem('candidateInfo'));
         return storedCandidateInfo ? new Candidate(storedCandidateInfo) : null;
     }
+
+    static clear() {
+        localStorage.removeItem('candidateInfo');
+    }
 }

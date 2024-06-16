@@ -58,7 +58,6 @@ class Controller {
 
         return [job1, job2, job3];
     }
-
     static handleSubmit(event) {
         event.preventDefault();
 
@@ -73,17 +72,16 @@ class Controller {
         const candidate = new Candidate(formData);
         candidate.save();
 
-        var modal = bootstrap.Modal.getInstance(document.getElementById('formInfo'));
+        const modal = bootstrap.Modal.getInstance(document.getElementById('formInfo'));
         modal.hide();
 
         View.showToast('Formulário enviado com sucesso!');
     }
 
     static handleClear() {
-        localStorage.removeItem('candidateInfo');
+        Candidate.clear();
         View.clearForm();
     }
-
 
     static handleModalShow() {
         const candidate = Candidate.load();
