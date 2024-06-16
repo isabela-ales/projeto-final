@@ -8,6 +8,7 @@ class Controller {
         });
 
         document.getElementById('submitBtn').addEventListener('click', Controller.handleSubmit);
+        document.getElementById('clearBtn').addEventListener('click', Controller.handleClear);
         document.getElementById('formInfo').addEventListener('show.bs.modal', Controller.handleModalShow);
     }
 
@@ -17,6 +18,18 @@ class Controller {
             "Candidates will typically have 2 years of experience in program or project management.",
             "Experience with Environmental, Health and Safety (EHS) management, and experience managing EHS compliance for industrial facilities.",
             "Experience managing environmental programs (e.g., emissions, wastewater, etc.)."
+        ];
+
+        const qualifications2 = [
+            "Bachelor's degree in Computer Science, Mathematics, or related technical field, or equivalent practical experience in software engineering.",
+            "5 years of experience in architecting and implementing APIs and integration technologies in distributed enterprise environments using a combination of technologies, languages, or standards like REST, SOAP, GraphQL, JSON, OpenAPI, Python, Java, JavaScript, Cassandra, Kubernetes, etc.",
+            "Experience with API Gateway/Management with Apigee or other API management solutions."
+        ];
+
+        const qualifications3 = [
+            "Bachelor's degree or equivalent practical experience.",
+            "Candidates will typically have 8 years of experience with software development in one or more programming languages (e.g., Python, C, C++, Java, JavaScript).",
+            "Candidates will typically have 3 years of experience in a technical leadership role; overseeing projects, with 2 years of experience in a people management, supervision/team leadership role."
         ];
 
         const job1 = new Job({
@@ -32,10 +45,18 @@ class Controller {
             company: "Google",
             location: "Bengaluru, Karnataka, India",
             expLevel: "Mid",
-            qualifications: qualifications1
+            qualifications: qualifications2
         });
 
-        return [job1, job2];
+        const job3 = new Job({
+            title: "Engineering Manager, Easy SaaS, Google Cloud",
+            company: "Google",
+            location: "Warsaw, Poland",
+            expLevel: "Advanced",
+            qualifications: qualifications3
+        });
+
+        return [job1, job2, job3];
     }
 
     static handleSubmit(event) {
@@ -57,6 +78,12 @@ class Controller {
 
         View.showToast('Formulário enviado com sucesso!');
     }
+
+    static handleClear() {
+        localStorage.removeItem('candidateInfo');
+        View.clearForm();
+    }
+
 
     static handleModalShow() {
         const candidate = Candidate.load();
