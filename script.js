@@ -55,7 +55,7 @@ function createJobCard(job) {
     card.innerHTML = `
         <div class="title-job">
             <span class="title-cards">${job.title}</span>
-            <button type="button" class="btn-apply" data-bs-toggle="modal" data-bs-target="#formInfo">Aplicar</button>
+            <button type="button" class="btn-apply m-2" data-bs-toggle="modal" data-bs-target="#formInfo">Aplicar</button>
         </div>
         <div class="job-info">
             <div class="info">
@@ -125,6 +125,9 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
     const candidateInfo = new Candidate(formData);
     console.log(candidateInfo);
 
+    // Salva as informações no localStorage
+    localStorage.setItem('candidateInfo', JSON.stringify(candidateInfo));
+
     var modal = bootstrap.Modal.getInstance(document.getElementById('formInfo'));
     modal.hide();
 
@@ -132,3 +135,17 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
     var toast = new bootstrap.Toast(toastElement);
     toast.show();
 });
+
+document.getElementById('formInfo').addEventListener('show.bs.modal', function () {
+    // Recupera as informações do localStorage
+    const storedCandidateInfo = JSON.parse(localStorage.getItem('candidateInfo'));
+
+    if (storedCandidateInfo) {
+        document.getElementById('name').value = storedCandidateInfo.name;
+        document.getElementById('email').value = storedCandidateInfo.email;
+        document.getElementById('phoneNumber').value = storedCandidateInfo.phoneNumber;
+        document.getElementById('profileLink').value = storedCandidateInfo.profileLink;
+        document.getElementById('aditionalDetails').value = storedCandidateInfo.aditionalDetails;
+    }
+});
+

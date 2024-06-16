@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -24,8 +24,19 @@
 </head>
 
 <body>
+    <div class="header">
+        <div class="company">
+            <svg xmlns="http://www.w3.org/2000/svg" class="m-2" width="42" height="38" viewBox="0 0 42 38" fill="none">
+                <path
+                    d="M21.1045 37.7331C20.5378 37.7331 20.0505 37.532 19.6425 37.1298C19.2345 36.7273 19.0305 36.2317 19.0305 35.643C19.0305 35.374 19.0845 35.1046 19.1925 34.8349C19.3005 34.5652 19.4625 34.3168 19.6785 34.0897L28.8085 24.8453L27.7585 23.7808L18.642 33.0373C18.425 33.2563 18.1895 33.4165 17.9355 33.5179C17.6812 33.6193 17.4082 33.67 17.1165 33.67C16.5555 33.67 16.0787 33.4736 15.686 33.0809C15.293 32.6882 15.0965 32.2046 15.0965 31.6301C15.0965 31.2759 15.1465 30.979 15.2465 30.7394C15.3465 30.4995 15.4958 30.2828 15.6945 30.0895L24.801 20.8446L23.751 19.78L14.7045 28.914C14.4965 29.1248 14.2638 29.2849 14.0065 29.394C13.7492 29.5035 13.4587 29.5583 13.135 29.5583C12.6017 29.5583 12.133 29.3535 11.729 28.9439C11.325 28.5343 11.123 28.0552 11.123 27.5067C11.123 27.212 11.177 26.9383 11.285 26.6855C11.3927 26.4327 11.5505 26.1968 11.7585 25.9778L20.8295 16.7815L19.7795 15.717L10.7585 24.9132C10.5762 25.1066 10.3583 25.2539 10.105 25.3553C9.85166 25.4567 9.55032 25.5074 9.20099 25.5074C8.63432 25.5074 8.15532 25.3139 7.76399 24.9269C7.37266 24.54 7.17699 24.0704 7.17699 23.5182C7.17699 23.2235 7.23499 22.9418 7.35099 22.6731C7.46699 22.4041 7.63299 22.1601 7.84899 21.9411L18.915 10.7217L24.9065 16.7957C25.3208 17.2161 25.763 17.5612 26.233 17.8309C26.703 18.1002 27.2865 18.2349 27.9835 18.2349C29.1062 18.2349 30.0422 17.8765 30.7915 17.1597C31.5405 16.4426 31.915 15.4764 31.915 14.2611C31.915 13.7153 31.8095 13.2082 31.5985 12.7398C31.3872 12.2714 31.0488 11.8014 30.5835 11.33L22.0165 2.6437L22.424 2.17986C23.0067 1.61479 23.6598 1.18052 24.3835 0.877038C25.1075 0.573555 25.8633 0.421814 26.651 0.421814C27.5337 0.421814 28.3537 0.575582 29.111 0.883121C29.868 1.19066 30.5545 1.65264 31.1705 2.26907L39.3815 10.6324C40.0295 11.2972 40.513 12.0336 40.832 12.8417C41.1513 13.65 41.311 14.5806 41.311 15.6333C41.311 16.4302 41.141 17.2136 40.801 17.9835C40.4613 18.753 39.9882 19.4492 39.3815 20.072L22.636 37.0887C22.3613 37.3672 22.11 37.5443 21.882 37.62C21.654 37.6954 21.3948 37.7331 21.1045 37.7331ZM5.29449 22.3005L2.51099 19.4901C1.93632 18.9416 1.49099 18.2875 1.17499 17.5277C0.858989 16.768 0.700989 15.9544 0.700989 15.0869C0.700989 14.1595 0.869656 13.3099 1.20699 12.538C1.54432 11.7665 1.97899 11.111 2.51099 10.5716L10.65 2.26907C11.1993 1.71212 11.8447 1.26501 12.586 0.927732C13.3273 0.590453 14.0838 0.421814 14.8555 0.421814C15.8112 0.421814 16.651 0.558684 17.375 0.832428C18.099 1.10617 18.8023 1.58505 19.485 2.26907L29.4835 12.3945C29.8235 12.7389 30.0618 13.0625 30.1985 13.3653C30.3352 13.6681 30.4035 13.9667 30.4035 14.2611C30.4035 14.9694 30.1748 15.5575 29.7175 16.0252C29.2602 16.4926 28.6782 16.7263 27.9715 16.7263C27.6478 16.7263 27.3097 16.6403 26.957 16.4683C26.6043 16.2959 26.2622 16.0374 25.9305 15.6926L18.877 8.54186L5.29449 22.3005Z"
+                    fill="#9699EB" />
+            </svg> NextTechJob.com
+        </div>
+    </div>
+    <div class="banner">
+        <img src="assets/img/banner.png" alt="Seu futuro profissional está aqui."/>
+    </div>
     <div class="container">
-        <br>
         <br>
         <div id="job-container"></div>
     </div>
@@ -39,7 +50,7 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Formulário de Candidato</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body"> 
                     <form id="candidateForm">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nome Completo</label>
@@ -64,7 +75,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-apply" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn-discard" data-bs-dismiss="modal">Descastar</button>
                     <button type="submit" class="btn-apply" id="submitBtn">Enviar</button>
                 </div>
             </div>
@@ -83,8 +94,13 @@
             </div>
         </div>
     </div>
+
+    <script src="js/models/Candidate.js"></script>
+    <script src="js/models/Job.js"></script>
+    <script src="js/views/View.js"></script>
+    <script src="js/controllers/Controller.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
-<script src="script.js"></script>
 
 </html>
