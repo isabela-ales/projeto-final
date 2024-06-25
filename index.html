@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="banner">
-        <img src="assets/img/banner.png" alt="Seu futuro profissional está aqui."/>
+        <img src="assets/img/banner.png" alt="Seu futuro profissional está aqui." />
     </div>
     <div class="container">
         <br>
@@ -51,23 +51,35 @@
                     <button type="button" class="btn-clear" id="clearBtn">Limpar informações salvas</button>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body"> 
+                <div class="modal-body">
                     <form id="candidateForm">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nome Completo</label>
                             <input type="text" class="form-control" id="name" required>
+                            <div class="invalid-feedback">
+                               Este campo é obrigatório.
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail</label>
                             <input type="email" class="form-control" id="email" required>
+                            <div class="invalid-feedback">
+                               Este campo é obrigatório.
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="phoneNumber" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="phoneNumber" required>
+                            <input type="tel" class="form-control" id="phoneNumber" required pattern="\d{10,15}">
+                            <div class="invalid-feedback">
+                               Este campo é obrigatório.
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="profileLink" class="form-label">Link do LinkedIn</label>
                             <input type="url" class="form-control" id="profileLink" required>
+                            <div class="invalid-feedback">
+                               Este campo é obrigatório.
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="aditionalDetails" class="form-label">Informações Adicionais</label>
@@ -76,7 +88,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-discard" data-bs-dismiss="modal">Descastar</button>
+                    <button type="button" class="btn-discard" data-bs-dismiss="modal">Descartar</button>
                     <button type="submit" class="btn-apply" id="submitBtn">Enviar</button>
                 </div>
             </div>

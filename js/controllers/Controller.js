@@ -61,6 +61,12 @@ class Controller {
     static handleSubmit(event) {
         event.preventDefault();
 
+        const form = document.getElementById('candidateForm');
+        if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+            return;
+        }
+
         const formData = {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
@@ -90,5 +96,6 @@ class Controller {
         } else {
             View.clearForm();
         }
+        document.getElementById('candidateForm').classList.remove('was-validated');
     }
 }
