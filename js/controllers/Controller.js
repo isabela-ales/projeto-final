@@ -14,47 +14,49 @@ class Controller {
 
     static loadJobs() {
         const qualifications1 = [
-            "Bachelor's degree in Occupational Health and Safety or related discipline, or equivalent practical experience",
-            "Candidates will typically have 2 years of experience in program or project management.",
-            "Experience with Environmental, Health and Safety (EHS) management, and experience managing EHS compliance for industrial facilities.",
-            "Experience managing environmental programs (e.g., emissions, wastewater, etc.)."
+            "Bacharelado em Saúde e Segurança Ocupacional ou disciplina relacionada, ou experiência prática equivalente",
+            "Os candidatos geralmente terão 2 anos de experiência em gerenciamento de programas ou projetos.",
+            "Experiência com gestão de Meio Ambiente, Saúde e Segurança (EHS), e experiência na gestão de conformidade EHS para instalações industriais.",
+            "Experiência na gestão de programas ambientais (por exemplo, emissões, águas residuais, etc.)."
         ];
 
         const qualifications2 = [
-            "Bachelor's degree in Computer Science, Mathematics, or related technical field, or equivalent practical experience in software engineering.",
-            "5 years of experience in architecting and implementing APIs and integration technologies in distributed enterprise environments using a combination of technologies, languages, or standards like REST, SOAP, GraphQL, JSON, OpenAPI, Python, Java, JavaScript, Cassandra, Kubernetes, etc.",
-            "Experience with API Gateway/Management with Apigee or other API management solutions."
+            "Bacharelado em Ciência da Computação, Matemática ou área técnica relacionada, ou experiência prática equivalente em engenharia de software.",
+            "5 anos de experiência em arquitetar e implementar APIs e tecnologias de integração em ambientes empresariais distribuídos usando uma combinação de tecnologias, linguagens ou padrões como REST, SOAP, GraphQL, JSON, OpenAPI, Python, Java, JavaScript, Cassandra, Kubernetes, etc.",
+            "Experiência com Gateway/Gestão de API com Apigee ou outras soluções de gestão de API."
         ];
 
         const qualifications3 = [
-            "Bachelor's degree or equivalent practical experience.",
-            "Candidates will typically have 8 years of experience with software development in one or more programming languages (e.g., Python, C, C++, Java, JavaScript).",
-            "Candidates will typically have 3 years of experience in a technical leadership role; overseeing projects, with 2 years of experience in a people management, supervision/team leadership role."
+            "Bacharelado ou experiência prática equivalente.",
+            "Os candidatos geralmente terão 8 anos de experiência com desenvolvimento de software em uma ou mais linguagens de programação (por exemplo, Python, C, C++, Java, JavaScript).",
+            "Os candidatos geralmente terão 3 anos de experiência em um papel de liderança técnica; supervisionando projetos, com 2 anos de experiência em gestão de pessoas, supervisão/liderança de equipe."
         ];
 
+
         const job1 = new Job({
-            title: "Program Manager, Data Center Environmental, Health, and Safety",
+            title: "Gerente de Programa, Meio Ambiente, Saúde e Segurança de Data Center",
             company: "Google",
-            location: "London, UK",
-            expLevel: "Mid",
+            location: "Londres, Reino Unido",
+            expLevel: "Intermediário",
             qualifications: qualifications1
         });
 
         const job2 = new Job({
-            title: "API Management Engineer",
+            title: "Engenheiro de Gestão de API",
             company: "Google",
-            location: "Bengaluru, Karnataka, India",
-            expLevel: "Mid",
+            location: "Bengaluru, Karnataka, Índia",
+            expLevel: "Intermediário",
             qualifications: qualifications2
         });
 
         const job3 = new Job({
-            title: "Engineering Manager, Easy SaaS, Google Cloud",
+            title: "Gerente de Engenharia, Easy SaaS, Google Cloud",
             company: "Google",
-            location: "Warsaw, Poland",
-            expLevel: "Advanced",
+            location: "Varsóvia, Polônia",
+            expLevel: "Avançado",
             qualifications: qualifications3
         });
+
 
         return [job1, job2, job3];
     }

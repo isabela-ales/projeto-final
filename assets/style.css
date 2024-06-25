@@ -145,7 +145,7 @@ body {
 /* toast */
 
 .toast-submit {
-    background-color: var(--green);
+    background-color: var(--green) !important;
     color: var(--text-primary);
 }
 
