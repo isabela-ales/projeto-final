@@ -83,7 +83,8 @@ class View {
             applyButton.remove();
             const appliedNotice = document.createElement('div');
             appliedNotice.classList.add('applied-notice');
-            appliedNotice.textContent = 'Aplicação enviada';
+            appliedNotice.textContent = 'Candidatura enviada';
+            appliedNotice.classList.add('applied-notice-style');
             card.querySelector('.title-job').appendChild(appliedNotice);
         }
     }

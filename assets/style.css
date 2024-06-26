@@ -34,6 +34,14 @@ body {
     font-weight: 700;
     font-style: normal;
 }
+.applied-notice-style {
+    color: #7c7c7c;
+    font-size: 14px;
+    margin: 10px;
+    border: solid 1px #7c7c7c;
+    padding: 3px;
+    border-radius: 3px;
+}
 
 /* header */
 .header {
