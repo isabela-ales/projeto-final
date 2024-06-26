@@ -5,6 +5,13 @@ class Controller {
         jobs.forEach(job => {
             const card = View.createJobCard(job);
             jobContainer.appendChild(card);
+
+            // Verifica se o candidato já se candidatou a este job
+            const candidates = Candidate.loadAll();
+            const candidate = candidates.find(c => c.jobId == job.id);
+            if (candidate) {
+                View.markJobAsApplied(card);
+            }
         });
 
         document.getElementById('submitBtn').addEventListener('click', Controller.handleSubmit);
@@ -34,7 +41,8 @@ class Controller {
 
 
         const job1 = new Job({
-            title: "Gerente de Programa, Meio Ambiente, Saúde e Segurança de Data Center",
+            id: 1,
+            title: "Gerente de Projeto, Meio Ambiente, Saúde e Segurança de Data Center",
             company: "Google",
             location: "Londres, Reino Unido",
             expLevel: "Intermediário",
@@ -42,6 +50,7 @@ class Controller {
         });
 
         const job2 = new Job({
+            id: 2,
             title: "Engenheiro de Gestão de API",
             company: "Google",
             location: "Bengaluru, Karnataka, Índia",
@@ -50,6 +59,7 @@ class Controller {
         });
 
         const job3 = new Job({
+            id: 3,
             title: "Gerente de Engenharia, Easy SaaS, Google Cloud",
             company: "Google",
             location: "Varsóvia, Polônia",
@@ -57,9 +67,9 @@ class Controller {
             qualifications: qualifications3
         });
 
-
         return [job1, job2, job3];
     }
+
     static handleSubmit(event) {
         event.preventDefault();
 
@@ -74,16 +84,26 @@ class Controller {
             email: document.getElementById('email').value,
             phoneNumber: document.getElementById('phoneNumber').value,
             profileLink: document.getElementById('profileLink').value,
-            aditionalDetails: document.getElementById('aditionalDetails').value
+            aditionalDetails: document.getElementById('aditionalDetails').value,
+            jobId: document.getElementById('job-id').value
         };
 
         const candidate = new Candidate(formData);
         candidate.save();
 
         const modal = bootstrap.Modal.getInstance(document.getElementById('formInfo'));
+        const applyButton = modal.relatedButton;
         modal.hide();
 
         View.showToast('Formulário enviado com sucesso!');
+
+        // Substituir o botão "Aplicar" pelo aviso "Candidatura enviada"
+        if (applyButton) {
+            const card = applyButton.closest('.card-job');
+            if (card) {
+                View.markJobAsApplied(card);
+            }
+        }
     }
 
     static handleClear() {
@@ -91,8 +111,16 @@ class Controller {
         View.clearForm();
     }
 
-    static handleModalShow() {
-        const candidate = Candidate.load();
+    static handleModalShow(event) {
+        // Salvar o botão que abriu o modal
+        const modal = event.target;
+        modal.relatedButton = event.relatedTarget;
+
+        // Salvar o ID do trabalho no formulário
+        const jobId = event.relatedTarget.getAttribute('data-job-id');
+        document.getElementById('job-id').value = jobId;
+
+        const candidate = Candidate.load(jobId);
         if (candidate) {
             View.fillForm(candidate);
         } else {

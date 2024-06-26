@@ -1,5 +1,6 @@
 class Job {
-    constructor({ title, company, location, expLevel, qualifications }) {
+    constructor({ id, title, company, location, expLevel, qualifications }) {
+        this.id = id;
         this.title = title;
         this.company = company;
         this.location = location;

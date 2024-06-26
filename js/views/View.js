@@ -2,11 +2,12 @@ class View {
     static createJobCard(job) {
         const card = document.createElement('div');
         card.classList.add('card-job');
+        card.setAttribute('data-job-id', job.id);
 
         card.innerHTML = `
             <div class="title-job">
                 <span class="title-cards">${job.title}</span>
-                <button type="button" class="btn-apply m-2" data-bs-toggle="modal" data-bs-target="#formInfo">Aplicar</button>
+                <button type="button" class="btn-apply m-2" data-bs-toggle="modal" data-bs-target="#formInfo" data-job-id="${job.id}">Aplicar</button>
             </div>
             <div class="job-info">
                 <div class="info">
@@ -64,14 +65,26 @@ class View {
     }
 
     static fillForm(candidate) {
-        document.getElementById('name').value = candidate.name;
-        document.getElementById('email').value = candidate.email;
-        document.getElementById('phoneNumber').value = candidate.phoneNumber;
-        document.getElementById('profileLink').value = candidate.profileLink;
-        document.getElementById('aditionalDetails').value = candidate.aditionalDetails;
+        document.getElementById('name').value = candidate.name || '';
+        document.getElementById('email').value = candidate.email || '';
+        document.getElementById('phoneNumber').value = candidate.phoneNumber || '';
+        document.getElementById('profileLink').value = candidate.profileLink || '';
+        document.getElementById('aditionalDetails').value = candidate.aditionalDetails || '';
+        document.getElementById('job-id').value = candidate.jobId || '';
     }
 
     static clearForm() {
         document.getElementById('candidateForm').reset();
+    }
+
+    static markJobAsApplied(card) {
+        const applyButton = card.querySelector('.btn-apply');
+        if (applyButton) {
+            applyButton.remove();
+            const appliedNotice = document.createElement('div');
+            appliedNotice.classList.add('applied-notice');
+            appliedNotice.textContent = 'Aplicação enviada';
+            card.querySelector('.title-job').appendChild(appliedNotice);
+        }
     }
 }
