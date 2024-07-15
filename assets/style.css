@@ -34,6 +34,7 @@ body {
     font-weight: 700;
     font-style: normal;
 }
+
 .applied-notice-style {
     color: #7c7c7c;
     font-size: 14px;
@@ -148,6 +149,16 @@ body {
     margin-left: 30px;
     margin-top: 5px;
     font-size: 15px;
+}
+
+.btn-header {
+    display: flex;
+    padding: 24px 32px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-left: 1px solid #383838;
+    background: var(--white, #FFF);
 }
 
 /* toast */
