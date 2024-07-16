@@ -91,6 +91,9 @@ class Controller {
         const candidate = new Candidate(formData);
         candidate.save();
 
+        // Salvando os dados do formulário para uso futuro
+        localStorage.setItem('lastCandidate', JSON.stringify(formData));
+
         const modal = bootstrap.Modal.getInstance(document.getElementById('formInfo'));
         const applyButton = modal.relatedButton;
         modal.hide();
@@ -109,6 +112,7 @@ class Controller {
     static handleClear() {
         Candidate.clear();
         View.clearForm();
+        localStorage.removeItem('lastCandidate');
     }
 
     static handleModalShow(event) {
@@ -124,7 +128,13 @@ class Controller {
         if (candidate) {
             View.fillForm(candidate);
         } else {
-            View.clearForm();
+            // Verifica se há dados salvos previamente
+            const lastCandidate = JSON.parse(localStorage.getItem('lastCandidate'));
+            if (lastCandidate) {
+                View.fillForm(lastCandidate);
+            } else {
+                View.clearForm();
+            }
         }
         document.getElementById('candidateForm').classList.remove('was-validated');
     }
