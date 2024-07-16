@@ -6,7 +6,7 @@ class Controller {
             const card = View.createJobCard(job);
             jobContainer.appendChild(card);
 
-            // Verifica se o candidato já se candidatou a este job
+            // verifica se o candidato já se candidatou a este job
             const candidates = Candidate.loadAll();
             const candidate = candidates.find(c => c.jobId == job.id);
             if (candidate) {
@@ -70,7 +70,7 @@ class Controller {
         return [job1, job2, job3];
     }
 
-    static handleSubmit(event) {
+     static handleSubmit(event) {
         event.preventDefault();
 
         const form = document.getElementById('candidateForm');
@@ -85,13 +85,13 @@ class Controller {
             phoneNumber: document.getElementById('phoneNumber').value,
             profileLink: document.getElementById('profileLink').value,
             aditionalDetails: document.getElementById('aditionalDetails').value,
-            jobId: document.getElementById('job-id').value
+            jobId: document.getElementById('job-id').value 
         };
 
         const candidate = new Candidate(formData);
         candidate.save();
 
-        // Salvando os dados do formulário para uso futuro
+        // salva os dados do formulário para uso futuro
         localStorage.setItem('lastCandidate', JSON.stringify(formData));
 
         const modal = bootstrap.Modal.getInstance(document.getElementById('formInfo'));
@@ -100,7 +100,7 @@ class Controller {
 
         View.showToast('Formulário enviado com sucesso!');
 
-        // Substituir o botão "Aplicar" pelo aviso "Candidatura enviada"
+        // substitui o botão "Aplicar" pelo "Candidatura enviada"
         if (applyButton) {
             const card = applyButton.closest('.card-job');
             if (card) {
@@ -116,21 +116,24 @@ class Controller {
     }
 
     static handleModalShow(event) {
-        // Salvar o botão que abriu o modal
+        // salva o botão que abriu o modal
         const modal = event.target;
         modal.relatedButton = event.relatedTarget;
 
-        // Salvar o ID do trabalho no formulário
+        // salva o id do trabalho no formulário
         const jobId = event.relatedTarget.getAttribute('data-job-id');
+        console.log('Job ID:', jobId); // log para verificar o id
         document.getElementById('job-id').value = jobId;
 
         const candidate = Candidate.load(jobId);
         if (candidate) {
             View.fillForm(candidate);
         } else {
-            // Verifica se há dados salvos previamente
+            // verifica se tem dados salvos previamente
             const lastCandidate = JSON.parse(localStorage.getItem('lastCandidate'));
             if (lastCandidate) {
+                // atualiza o jobId com o jobId atual
+                lastCandidate.jobId = jobId;
                 View.fillForm(lastCandidate);
             } else {
                 View.clearForm();

@@ -10,12 +10,9 @@ class Candidate {
 
     save() {
         let candidates = JSON.parse(localStorage.getItem('candidates')) || [];
-        const existingCandidateIndex = candidates.findIndex(candidate => candidate.jobId == this.jobId);
-        if (existingCandidateIndex > -1) {
-            candidates[existingCandidateIndex] = this; // Atualiza o candidato existente
-        } else {
-            candidates.push(this); // Adiciona um novo candidato
-        }
+        // remove candidaturas duplicadas para o mesmo job
+        candidates = candidates.filter(candidate => candidate.jobId !== this.jobId);
+        candidates.push(this);
         localStorage.setItem('candidates', JSON.stringify(candidates));
     }
 
